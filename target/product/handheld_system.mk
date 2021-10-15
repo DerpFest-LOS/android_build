@@ -95,9 +95,13 @@ PRODUCT_SYSTEM_SERVER_APPS += \
 PRODUCT_PACKAGES += framework-audio_effects.xml
 
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.carrier?=unknown \
+    ro.carrier?=unknown
+
+ifeq ($(LINEAGE_BUILD),)
+PRODUCT_VENDOR_PROPERTIES := \
     ro.config.notification_sound?=OnTheHunt.ogg \
     ro.config.alarm_alert?=Alarm_Classic.ogg
+endif
 
 # Traceur for debug only
 PRODUCT_PACKAGES_ENG += \
